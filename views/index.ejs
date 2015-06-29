@@ -27,7 +27,7 @@
       </div>
       <div id='main'>
         <div id='login-area'>
-          <form action="/users" method="post">
+          <form action="/users/login" method="post">
 
               <label>Username</label>
               <div>
@@ -45,8 +45,12 @@
               </div>
 
               <div id='login-signup'>
-                <input type="submit" value="Login">
-                <input type="submit" href="/new" value="Sign Up"/>
+                <form action="./home">
+                  <input type="submit" value="Login">
+                </form>
+                <form action="./users">
+                  <input type="submit" value="Signup">
+                </form>
               </div>
 
           </form>

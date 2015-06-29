@@ -11,7 +11,7 @@ server.set('views', './views');
 //rendering engine
 server.set('view engine', 'ejs');
 
-server.use("/stylesheets", express.static(__dirname + "/stylesheets"));
+server.use("/stylesheets", express.static(__dirname + "/public"));
 
 server.use(session({
   secret: 'wdiarcher',
@@ -25,7 +25,6 @@ server.use(bodyParser.urlencoded({
 }));
 
 server.use(express.static('./public'));
-
 
 server.use(methodOverride('_method'));
 
@@ -45,6 +44,17 @@ server.get('/', function(req, res, next){
   });
 });
 
+server.get('/home', function(req, res, next) {
+  if (req.session.currentUser) {
+    res.render('home', {
+      currentUser: req.session.currentUser
+    })
+  }
+  else {
+    res.redirect(301, 'users/new')
+  }
+})
+
 server.post('/', function(req, res, next) {
   req.session.username = req.body.username;
   req.session.password = req.body.password;
@@ -59,7 +69,7 @@ var db = mongoose.connection;
 
 db.on('error', function(){
   console.log("database errors....!");
-})
+});
 
 db.once('open', function(){
   console.log("Database Active");
