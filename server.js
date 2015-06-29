@@ -59,12 +59,16 @@ server.get('/home', function(req, res, next) {
 });
 
 server.post('/', function(req, res, next) {
-  req.session.username = req.body.username;
-  req.session.password = req.body.password;
-  req.session.email = req.body.email;
-  console.log("Post");
-  res.redirect(301, '/');
-});
+    var attempt = req.body.user;
+    User.findOne({username: attempt.username} , function(err, user){
+      if (user && user.password === attempt.password){
+        req.session.currentUser = user.username;
+        res.redirect(301, 'home');
+      } else {
+        res.redirect(301, 'index')
+      }
+    })
+  });
 
 //database and server status
 

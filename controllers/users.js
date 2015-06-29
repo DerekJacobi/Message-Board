@@ -15,7 +15,7 @@ router.get('/new', function(req, res){
 router.post('/', function(req, res){
   var newUser = User(req.body.user);
   newUser.save(function(err, user) {
-    // res.redirect(301, '/users/' + user._id)
+    res.redirect(301, 'homepage')
   })
 });
 
@@ -24,24 +24,18 @@ router.get('/login', function(req, res){
 });
 
 router.post('/login', function(req, res){
-  var attempt = req.body.user;
-  User.findOne({username: attempt.username} , function(err, user){
-    if (user && user.password === attempt.password){
-      req.session.currentUser = user.username;
-      res.redirect(301, 'home');
-    } else {
-      res.redirect(301, '/users/new')
-    }
-  })
+  req.session.username = req.body.username;
+  req.session.password = req.body.password;
+  req.session.email = req.body.email;
+  console.log("Post");
+  res.redirect(301, '/posts');
 });
-
 
 router.get('/:id', function(req, res){
   User.findById(req.params.id, function(err, user){
     console.log(user);
   })
 });
-
 
 //export the router object
 module.exports = router;
