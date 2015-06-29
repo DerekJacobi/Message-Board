@@ -31,11 +31,11 @@ router.post('/login', function(req, res){
   res.redirect(301, '/posts');
 });
 
-router.get('/:id', function(req, res){
-  User.findById(req.params.id, function(err, user){
-    console.log(user);
-  })
-});
+// router.get('/:id', function(req, res){
+//   User.findById(req.params.id, function(err, user){
+//     console.log(user);
+//   })
+// });
 
 //export the router object
 module.exports = router;

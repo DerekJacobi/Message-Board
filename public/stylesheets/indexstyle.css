@@ -68,3 +68,7 @@ ul {
   height: 100vh;
   overflow: auto;
 }
+
+#new-topic {
+  margin-bottom: 30px;
+}
