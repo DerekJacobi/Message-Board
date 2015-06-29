@@ -51,14 +51,15 @@ server.get('/home', function(req, res, next) {
     })
   }
   else {
-    res.redirect(301, 'users/new')
+    res.redirect(301, 'index')
   }
-})
+});
 
 server.post('/', function(req, res, next) {
   req.session.username = req.body.username;
   req.session.password = req.body.password;
   req.session.email = req.body.email;
+  console.log("Post");
   res.redirect(301, '/');
 });
 
