@@ -6,11 +6,11 @@ var express = require('express'),
 
 router.get('/', function(req, res){
   res.render('users/new')
-})
+});
 
 router.get('/new', function(req, res){
   res.render('users/new')
-})
+});
 
 router.post('/', function(req, res){
   var newUser = User(req.body.user);

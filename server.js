@@ -36,6 +36,9 @@ server.use(function(req, res, next) {
 var userController = require('./controllers/users.js');
 server.use('/users', userController);
 
+var postController = require('./controllers/post.js');
+server.use('/posts', postController);
+
 server.get('/', function(req, res, next){
   res.render('index', {
     username: req.session.username,

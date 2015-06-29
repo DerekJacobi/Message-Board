@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Homepage</title>
+    <link rel='stylesheet' href='/stylesheets/indexstyle.css'/>
+  </head>
+  <body>
+    <div id='top-nav'>
+      <ul>
+        <li>
+          <form action="../">
+            <input type="submit" value="Home">
+          </form>
+        </li>
+        <li>
+          <button>Logout</button>
+        </li>
+      </ul>
+    </div>
+    <div id='display'>
+      <div id='left-nav'>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+        </ul>
+      </div>
+      <div id='posts'>
+        <% posts.forEach(function (post, i) { %>
+        <div class='individual-post'>
+          <h1> <%= post.title %> </h1>
+          <p> <%= post.post %> </p>
+          <p> <%= post.date %> </p>
+          <h3>Comments: </h3>
+          <% for(var i = 0; i < post.comments.length; i++) { %>
+            <p><%= post.comments[i] %></p>
+          <% } %>
+          <form action="posts" method="post">
+            Comments:<br/>
+              <textarea name="comments" id="comments">
+              </textarea><br/>
+              <input type="submit" value="Submit" />
+            </form>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
