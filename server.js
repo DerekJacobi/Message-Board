@@ -11,6 +11,8 @@ server.set('views', './views');
 //rendering engine
 server.set('view engine', 'ejs');
 
+server.use("/stylesheets", express.static(__dirname + "/stylesheets"));
+
 server.use(session({
   secret: 'wdiarcher',
   resave: true,
@@ -24,12 +26,10 @@ server.use(bodyParser.urlencoded({
 
 server.use(express.static('./public'));
 
-server.user(methodOverride('_method'));
+
+server.use(methodOverride('_method'));
 
 server.use(function(req, res, next) {
-  console.log(req.body);
-  console.log(req.params);
-  console.log(req.session);
   next();
 });
 
