@@ -1,10 +1,11 @@
-var express     = require('express'),
-    server      = express(),
-    ejs         = require('ejs'),
-    bodyParser  = require('body-parser'),
-    mongoose    = require('mongoose'),
-    methodOverride = require('method-override')
-    session     = require('express-session');
+var express         = require('express'),
+    server          = express(),
+    ejs             = require('ejs'),
+    bodyParser      = require('body-parser'),
+    mongoose        = require('mongoose'),
+    methodOverride  = require('method-override'),
+    User            = require('./models/users.js'),
+    session         = require('express-session');
 
 server.set('views', './views');
 
@@ -63,9 +64,10 @@ server.post('/', function(req, res, next) {
     User.findOne({username: attempt.username} , function(err, user){
       if (user && user.password === attempt.password){
         req.session.currentUser = user.username;
-        res.redirect(301, 'home');
+        res.redirect(301, 'posts/');
       } else {
-        res.redirect(301, 'index')
+        console.log("Incorrect username/password");
+        res.redirect(301, '/')
       }
     })
   });

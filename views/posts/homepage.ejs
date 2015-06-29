@@ -34,15 +34,17 @@
           <h1> <%= post.title %> </h1>
           <p> <%= post.post %> </p>
           <p> <%= post.date %> </p>
+          <input type="submit" value="Up Vote" />
+          <input type="submit" value="Down Vote" />
           <h3>Comments: </h3>
           <% for(var i = 0; i < post.comments.length; i++) { %>
             <p><%= post.comments[i] %></p>
           <% } %>
-          <form action="posts" method="post">
-            Comments:<br/>
-              <textarea name="comments" id="comments">
-              </textarea><br/>
-              <input type="submit" value="Submit" />
+              <form action="posts" method="post">
+                Comments:<br/>
+                  <textarea name="comments" id="comments">
+                  </textarea><br/>
+                  <input type="submit" value="Submit" />
             </form>
           <% }) %>
         </div>
