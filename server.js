@@ -73,9 +73,10 @@ server.post('/', function(req, res, next) {
   });
 
 var PORT = process.env.PORT || 3000;
+var MONGOURI = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/project_two';
 //database and server status
 
-mongoose.connect('mongodb://localhost:27017/project_two');
+mongoose.connect(MONGOURI);
 var db = mongoose.connection;
 
 db.on('error', function(){
