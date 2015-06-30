@@ -72,6 +72,7 @@ server.post('/', function(req, res, next) {
     })
   });
 
+var PORT = process.env.PORT || 3000;
 //database and server status
 
 mongoose.connect('mongodb://localhost:27017/project_two');
@@ -83,7 +84,7 @@ db.on('error', function(){
 
 db.once('open', function(){
   console.log("Database Active");
-  server.listen(3000, function(){
+  server.listen(PORT, function(){
     console.log('Server up on 3000');
   });
 });
