@@ -3,49 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Main Forum</title>
-    <link rel='stylesheet' href='/stylesheets/indexstyle.css'/>
+    <link rel='stylesheet' href='/stylesheets/index.css'/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
   <body>
-    <div id='top-nav'>
-      <ul>
-        <li>
-          <form action="../">
-            <input type="submit" value="Home">
-          </form>
-        </li>
-        <li>
-          <button>Logout</button>
-        </li>
-      </ul>
-    </div>
-    <div id='display'>
-      <div id='left-nav'>
-        <ul>
-          <li><form action="./posts/newpost">
-            <input type="submit" value="New Post">
-          </form></li>
-          <li><button href="#">Sort by Topic</button></li>
-          <li><button href="#">Sort by Comments</button></li>
-          <li><button href="#">Sort by Votes</button></li>
-          <li><button href="#">Random Topic</button></li>
-        </ul>
-      </div>
       <div id='main'>
         <div id='login-area'>
           <form action="/" method="post">
-
-              <label>Username</label>
-              <div>
-                <input type="text" placeholder="username" name='user[username]'>
+            <div id='input-boxes'>
+              <div id='username'>
+                <input type="text" placeholder="  Username" name='user[username]'>
               </div>
-
-              <label>Password</label>
               <div>
-                <input type="text" placeholder="password" name='user[password]'>
+                <input type="text" placeholder="  Password" name='user[password]'>
               </div>
-
+            </div>
               <div id='login-signup'>
-              <input type="submit" value="Login">
+              <button type="submit">
+                <i id='sign-in' class="fa fa-sign-in"></i>
+              </button>
             </form>
                 <form action="./users">
                   <input type="submit" value="Signup">
