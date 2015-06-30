@@ -73,3 +73,12 @@ ul {
 #new-topic {
   margin-bottom: 30px;
 }
+
+.individual-post {
+  height: 75px;
+  overflow: hidden;
+}
+
+.open {
+  height: 100%;
+}

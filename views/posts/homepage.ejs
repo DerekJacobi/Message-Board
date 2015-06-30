@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Homepage</title>
     <link rel='stylesheet' href='/stylesheets/indexstyle.css'/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/scripts/script.js"></script>
   </head>
   <body>
     <div id='top-nav'>
@@ -31,16 +33,14 @@
       <div id='posts'>
         <% posts.forEach(function (post, i) { %>
         <div class='individual-post'>
+          <button id='expand'>Expand</button>
           <h1> <%= post.title %> </h1>
           <p> <%= post.post %> </p>
           <p> <%= post.date %> </p>
           <input type="submit" value="Up Vote" />
           <input type="submit" value="Down Vote" />
           <h3>Comments: </h3>
-          <% post.comments.forEach(function(comment, i) { %>
-            <p><%= post.comments %></p>
-          <% }) %>
-
+          <p><%= post.comments %></p>
           <form action="/posts/<%=post._id%>" method="post">
               <textarea id="comment" name='comments' placeholder="Comment"></textarea></br></br>
               <input id="comment-submit" type="submit" value="Submit">

@@ -8,8 +8,18 @@ router.get('/', function(req, res){
   res.render('users/new')
 });
 
-router.get('/new', function(req, res){
-  res.render('users/new')
+router.post('/new', function(req, res){
+  var username = req.body.user.username;
+  var password = req.body.user.password;
+  var email = req.body.user.email || null;
+  User.create({username: username, password: password, email: email}, function(err, saved){
+    if (err){
+      console.log(err);
+    } else {
+      console.log("User Created");
+      res.redirect(301, '/')
+    }
+  })
 });
 
 router.post('/', function(req, res){
@@ -27,15 +37,10 @@ router.post('/login', function(req, res){
   req.session.username = req.body.username;
   req.session.password = req.body.password;
   req.session.email = req.body.email;
-  console.log("Post");
+
   res.redirect(301, '/posts');
 });
 
-// router.get('/:id', function(req, res){
-//   User.findById(req.params.id, function(err, user){
-//     console.log(user);
-//   })
-// });
 
 //export the router object
 module.exports = router;

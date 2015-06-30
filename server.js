@@ -17,7 +17,7 @@ server.use("/stylesheets", express.static(__dirname + "/public"));
 server.use(session({
   secret: 'wdiarcher',
   resave: true,
-  saveUninitialized: false
+  saveUninitialized: true
 }));
 
 //form submission
@@ -55,7 +55,7 @@ server.get('/home', function(req, res, next) {
     })
   }
   else {
-    res.redirect(301, 'index')
+    res.redirect(301, 'index');
   }
 });
 
