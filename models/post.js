@@ -6,10 +6,10 @@ var postSchema = Schema({
   post: {type: String, required: true},
   date: { type: Date, default: Date.now },
   comments: [],
+  votes: {type: Number, default: 0}
 });
 
 
 var Post = mongoose.model('Post', postSchema);
 
 module.exports = Post;
-  

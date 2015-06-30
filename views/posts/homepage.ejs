@@ -23,7 +23,9 @@
     <div id='display'>
       <div id='left-nav'>
         <ul>
-          <li><button href="#" id='new-topic'>New Post</button></li>
+          <li><form action="./posts/newpost">
+            <input type="submit" value="New Post">
+          </form></li>
           <li><button href="#">Sort by Topic</button></li>
           <li><button href="#">Sort by Comments</button></li>
           <li><button href="#">Sort by Votes</button></li>
@@ -31,23 +33,23 @@
         </ul>
       </div>
       <div id='posts'>
-        <% posts.forEach(function (post, i) { %>
-        <div class='individual-post'>
-          <button id='expand'>Expand</button>
-          <h1> <%= post.title %> </h1>
-          <p> <%= post.post %> </p>
-          <p> <%= post.date %> </p>
-          <input type="submit" value="Up Vote" />
-          <input type="submit" value="Down Vote" />
-          <h3>Comments: </h3>
-          <p><%= post.comments %></p>
-          <form action="/posts/<%=post._id%>" method="post">
-              <textarea id="comment" name='comments' placeholder="Comment"></textarea></br></br>
-              <input id="comment-submit" type="submit" value="Submit">
-          </form>
+        <%posts.forEach(function (post, i) { %>
+          <div class='individual-post'>
+            <button class='expand'>Expand</button>
+            <h1> Title: <%= post.title %> </h1>
+            <p> Post: <%= post.post %> </p>
+            <p> Posting Date: <%= post.date %> </p>
+            <p> Votes: </p> <p class='votes'>0</p> 
+            <input type="submit" id="up-vote" value="Up Vote" />
+            <input type="submit" id="down-vote" value="Down Vote" />
+            <h3>Comments: </h3>
+            <p><%= post.comments %></p>
+            <form action="/posts/<%=post._id%>/comments" method="post">
+                <textarea id="comment" name='comments' placeholder="Comment"></textarea></br></br>
+                <input id="comment-submit" type="submit" value="Submit">
+              </form>
+            </div>
           <% }) %>
-        </div>
-      </div>
     </div>
   </body>
 </html>

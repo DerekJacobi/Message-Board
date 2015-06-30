@@ -16,7 +16,7 @@ router.get('/newpost', function(req, res){
   res.render('posts/newpost')
 })
 
-router.post("/:id", function (req, res) {
+router.post("/:id/comments", function (req, res) {
  var newComment = req.body.comments;
  console.log(newComment);
  var postId = req.params.id;
@@ -35,6 +35,7 @@ router.post('/', function(req, res){
     }
     else {
       console.log("Post Saved");
+      res.redirect(301, "posts")
     }
   })
 });

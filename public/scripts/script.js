@@ -1,5 +1,16 @@
-console.log("Script Loaded");
+$(function() {
+    console.log( "ready!" );
+    $('button.expand').on('click', function(){
+      $(this).parent().toggleClass("open");
+    });
 
-$('button').on('click', function(){
-  console.log("click");
-})
+    var $vote = $('.votes');
+
+    $('#up-vote').on('click', function(){
+      $vote.html((Number($vote.html()) + 1));
+    });
+    $('#down-vote').on('click', function(){
+      $vote.html((Number($vote.html()) - 1));
+    });
+
+});

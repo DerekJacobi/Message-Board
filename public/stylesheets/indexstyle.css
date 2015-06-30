@@ -65,9 +65,9 @@ ul {
 
 #posts {
   width: 100%;
-  height: 100vh;
-  overflow: auto;
+  height: 400px;
   background-color: lightblue;
+  overflow: scroll;
 }
 
 #new-topic {
@@ -75,8 +75,10 @@ ul {
 }
 
 .individual-post {
-  height: 75px;
+  height: 15%;
   overflow: hidden;
+  background-color: lightblue;
+
 }
 
 .open {
