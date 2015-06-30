@@ -13,9 +13,21 @@ router.get('/', function(req, res){
   })
 })
 
+router.get('/newpost', function(req, res){
+  res.render('posts/newpost')
+})
+
 router.post('/', function(req, res){
-  // var newComment = (req.body.post.comment);
-  console.log(res.body);
+  var title = req.body.post.title;
+  var post = req.body.post.post;
+  Post.save({title: title, post: post}, function(err, saved){
+    if (err){
+      console.log(err);
+    }
+    else {
+      console.log("Post Saved");
+    }
+  })
 });
 
 module.exports = router;

@@ -28,6 +28,23 @@
           <li><button href="#">Random Topic</button></li>
         </ul>
       </div>
+      <form action="/posts" method="post">
+
+          <label>Title</label>
+          <div>
+            <input type="text" placeholder="title" name='post[title]'>
+          </div>
+
+          <label>Content</label>
+          <div>
+            <input type="text" placeholder="content" name='post[post]'>
+          </div>
+
+          <div id='login-signup'>
+            <input type="submit" value="Post">
+          </div>
+
+      </form>
     </div>
   </body>
 </html>
