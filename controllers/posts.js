@@ -26,6 +26,24 @@ router.post("/:id/comments", function (req, res) {
  });
 });
 
+router.delete('/:id', function(req, res){
+  var mongoId = req.params.id;
+  Post.remove({_id:mongoId}, function(err, post){
+    res.redirect(301, '/posts');
+  });
+});
+
+router.get('/:id/edit', function(req, res){
+  var mongoId = req.params.id;
+  Post.findOne({_id:mongoId}, function(err, postEdit){
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('posts/edit', {post: postEdit});
+    };
+  });
+});
+
 router.post('/', function(req, res){
   var title = req.body.post.title;
   var post = req.body.post.post;

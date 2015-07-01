@@ -65,7 +65,7 @@ ul {
 
 #posts {
   width: 100%;
-  height: 400px;
+  height: 430px;
   background-color: lightblue;
   overflow: scroll;
 }
@@ -78,6 +78,7 @@ ul {
   height: 15%;
   overflow: hidden;
   background-color: lightblue;
+  transition: all 1s ease;
 
 }
 

@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Homepage</title>
     <link rel='stylesheet' href='/stylesheets/indexstyle.css'/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/scripts/script.js"></script>
   </head>
   <body>
     <div id='top-nav'>
@@ -21,7 +23,7 @@
     <div id='display'>
       <div id='left-nav'>
         <ul>
-          <li><form action="./newpost">
+          <li><form action="/posts/newpost">
             <input type="submit" value="New Post">
           </form></li>
           <li><button href="#">Sort by Topic</button></li>
@@ -30,23 +32,14 @@
           <li><button href="#">Random Topic</button></li>
         </ul>
       </div>
-      <form action="/posts" method="post">
-
-          <label>Title</label>
-          <div>
-            <input type="text" placeholder="title" name='post[title]'>
-          </div>
-
-          <label>Content</label>
-          <div>
-            <textarea type="textbox" placeholder="content" name='post[post]'></textarea>
-          </div>
-
-          <div id='login-signup'>
-            <input type="submit" value="Post">
-          </div>
-
-      </form>
-    </div>
+      <div id='posts'>
+         <form action="/posts/<%=post._id%>/?_method=PATCH" method="post">
+          <label>Title: </label>
+          <input type="text" name="post[title]" value="<%= post.title%>" />
+          <label>To Do: </label>
+          <input type="text" name="post[post]" value="<%= post.post%>"/>
+          <input type="submit" value="Update My Post" />
+        </form>
+      </div>
   </body>
 </html>
