@@ -23,7 +23,7 @@
     <div id='display'>
       <div id='left-nav'>
         <ul>
-          <li><form action="./posts/newpost">
+          <li><form action="/posts/newpost">
             <input type="submit" value="New Post">
           </form></li>
           <li><button href="#">Sort by Topic</button></li>
@@ -39,7 +39,7 @@
             <h1> Title: <%= post.title %> </h1>
             <p> Post: <%= post.post %> </p>
             <p> Posting Date: <%= post.date %> </p>
-            <p> Votes: </p> <p class='votes'>0</p> 
+            <p> Votes: </p> <p class='votes'>0</p>
             <input type="submit" id="up-vote" value="Up Vote" />
             <input type="submit" id="down-vote" value="Down Vote" />
             <h3>Comments: </h3>

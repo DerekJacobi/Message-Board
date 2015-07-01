@@ -1,7 +1,11 @@
 $(function() {
-    console.log( "ready!" );
     $('button.expand').on('click', function(){
       $(this).parent().toggleClass("open");
+      if ($(this).parent().hasClass("open")){
+        $(this).first().html('Collapse')
+      } else {
+        $(this).first().html('Expand')
+      };
     });
 
     var $vote = $('.votes');
