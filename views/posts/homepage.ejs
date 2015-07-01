@@ -39,7 +39,7 @@
             <h1> Title: <%= post.title %> </h1>
             <p> Post: <%= post.post %> </p>
             <p> Posting Date: <%= post.date %> </p>
-            <p>Votes: </p><p class='votes'>0</p>
+            <p>Votes:</p><p class='votes'>0</p>
             <input type="submit" id="up-vote" value="Up Vote" />
             <input type="submit" id="down-vote" value="Down Vote" />
             <h3>Comments: </h3>
@@ -48,7 +48,7 @@
                 <textarea id="comment" name='comments' placeholder="Comment"></textarea></br></br>
                 <input id="comment-submit" type="submit" value="Submit">
               </form>
-              <a href="/posts/<%=post._id%>/edit">Edit</a>
+              <button><a href="/posts/<%=post._id%>/edit">Edit</a></button>
               <form action="/posts/<%=post._id%>/?_method=DELETE" method="post">
                 <input type="submit" value="Delete">
               </form>
