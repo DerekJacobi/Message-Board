@@ -17,4 +17,6 @@ $(function() {
       $vote.html((Number($vote.html()) - 1));
     });
 
+    $('#login-area').attr('id', 'open-login-dropdown');
+
 });

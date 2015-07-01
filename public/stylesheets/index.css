@@ -23,6 +23,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 500px;
+  transition: 2s ease all;
+}
+
+#open-login-dropdown {
+  padding-bottom: 0px;
 }
 
 #login-signup {
