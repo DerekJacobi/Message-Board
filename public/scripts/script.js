@@ -11,12 +11,11 @@ $(function() {
     var $vote = $('.votes');
 
     $('#up-vote').on('click', function(){
-      $vote.html((Number($vote.html()) + 1));
+      $(this).first().html((Number($vote.html()) + 1));
     });
     $('#down-vote').on('click', function(){
-      $vote.html((Number($vote.html()) - 1));
+      $(this).parent().html((Number($vote.html()) - 1));
     });
 
-    $('#login-area').attr('id', 'open-login-dropdown');
 
 });

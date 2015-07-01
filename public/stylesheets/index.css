@@ -23,7 +23,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 500px;
   transition: 2s ease all;
 }
 
