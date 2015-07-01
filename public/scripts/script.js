@@ -11,10 +11,10 @@ $(function() {
     var $vote = $('.votes');
 
     $('#up-vote').on('click', function(){
-      $(this).first().html((Number($vote.html()) + 1));
+      $vote.html((Number($vote.html()) + 1));
     });
     $('#down-vote').on('click', function(){
-      $(this).parent().html((Number($vote.html()) - 1));
+      $vote.html((Number($vote.html()) - 1));
     });
 
 
